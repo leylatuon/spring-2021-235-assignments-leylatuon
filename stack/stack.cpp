@@ -11,13 +11,23 @@ void Stack::push(int val){
     size++;
 }
 void Stack::pop(){
-    s.erase(s.begin());
-    size--;
+    if(size>0)
+    {
+        s.erase(s.begin());
+        size--;
+    }
+    else{
+        std::cout<<"Empty stack."<<std::endl;
+    }
 }
 int Stack::top(){
-    return s[0];
+    if(size>0){
+        return s[0];
+    }
+        std::cout<<"Empty stack"<<std::endl;
+        return -1;
 }
-bool Stack::isempty(){
+bool Stack::isEmpty(){
     return (size<=0);
 }
 

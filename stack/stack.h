@@ -10,5 +10,5 @@ Stack();
 void push(int val);
 void pop();
 int top();
-bool isempty();
+bool isEmpty();
 };
