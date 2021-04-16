@@ -118,7 +118,7 @@ Node *rotate(Node *head, int position){
     Node *end=walker;//node 12
     cout<<"end: "<<end->getData()<<endl;
     walker=head;
-    while (ind < position-1){ 
+    while (ind < position){ 
         walker=walker->getNext();
         ind++;
     }

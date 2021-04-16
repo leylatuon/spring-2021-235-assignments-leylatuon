@@ -45,7 +45,7 @@ int main(){
     walker = walker->getNext();
 	walker->setNext(new Node("12"));
     cout<< "Not Rotated: "<< toString(n2)<<endl;
-    n2=rotate(n2,5);
+    n2=rotate(n2,4);
     cout<< "Rotated: " << toString(n2) <<endl;
   	return 0;
 }
