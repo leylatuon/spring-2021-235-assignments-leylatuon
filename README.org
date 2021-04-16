@@ -7,6 +7,9 @@
 * GitHub username: leylatuon
 
 * Notes:
+- For the midterm assignment I started the list without beginning with an empty header node
+and I tweaked the rotation position changing it from 5 to 4 to adjust for this while
+getting the same intended results
 
 
 
