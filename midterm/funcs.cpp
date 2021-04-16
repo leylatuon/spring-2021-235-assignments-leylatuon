@@ -4,6 +4,7 @@
 #include "funcs.h"
 
 using std::cout;
+using std::endl;
 using std::string;
 using std::stoi;
 
@@ -103,9 +104,29 @@ std::string toString(Node *head)
 	return s;
 }
 
-/*
+
 Node *rotate(Node *head, int position){
+    //we want to point the last element to where head is pointing and
+    //point head to the node in position and then set end to nullptr
+    Node *walker=head;
+    int ind=1;
+    while (walker->getNext() != nullptr){
+        walker = walker->getNext(); //go to last node pointing to null
+    }
+    Node *begin=head;//node 6
+    cout<<"begin: "<<begin->getData()<<endl;
+    Node *end=walker;//node 12
+    cout<<"end: "<<end->getData()<<endl;
+    walker=head;
+    while (ind < position-1){ 
+        walker=walker->getNext();
+        ind++;
+    }
+    Node *pivot=walker; //node 55
+    cout<<"pivot: "<<pivot->getData()<<endl;
+    Node *newHead=walker->getNext();
+    cout<<"newhead: "<<newHead->getData()<<endl;
+    end->setNext(begin); //point node 12 to node 6
+    pivot->setNext(nullptr);//point 55 to null
+    return newHead;
 }
-
-
-*/

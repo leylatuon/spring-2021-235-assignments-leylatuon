@@ -31,5 +31,21 @@ int main(){
 	cout << "Length: " << length(n1) << endl;
 	cout << "Mid: " << middle(n1)->getData() << endl;
 
+    Node *n2 = new Node("6");
+	walker = n2;
+	walker->setNext(new Node("-30"));
+	walker = walker->getNext();
+	walker->setNext(new Node("0"));
+	walker = walker->getNext();
+	walker->setNext(new Node ("55"));
+	walker = walker->getNext();
+	walker->setNext(new Node("22"));
+	walker = walker->getNext();
+	walker->setNext(new Node("17"));
+    walker = walker->getNext();
+	walker->setNext(new Node("12"));
+    cout<< "Not Rotated: "<< toString(n2)<<endl;
+    n2=rotate(n2,5);
+    cout<< "Rotated: " << toString(n2) <<endl;
   	return 0;
 }
