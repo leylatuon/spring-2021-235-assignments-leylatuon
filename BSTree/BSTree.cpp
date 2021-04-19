@@ -7,8 +7,6 @@ BSTree::BSTree(){
 }
 
 std::string BSTree::gds_helper(Node *n){
-  std::string a,b,c;
-  
   if (n==nullptr){
     return "";
   } else {
