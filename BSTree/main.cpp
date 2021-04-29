@@ -17,5 +17,24 @@ int main(){
     BSTree *t =new BSTree();
     t->setup();
     std::cout<< t->get_debug_string() << "\n";
-    return 0;
+    int v = 13;
+    try {
+        int x  = t->search(v);
+        std::cout << x << "\n";
+    } 
+    catch (int e){
+        std::cout << v << " not found\n"; 
+    }
+
+    t->insert(22);
+    std::cout <<  t->get_debug_string() << "\n";
+    t->insert(3);
+    std::cout <<  t->get_debug_string() << "\n";
+    t->deleter(22);
+    std::cout << t->get_debug_string()<<"\n";
+    std::cout << "number of nodes: " << t->countNodes() << "\n";
+    std::cout << "number of leaves: " << t->countLeaves() << "\n";
+    std::cout << "height: " << t->height() << "\n";
+    std::cout << "level 1 sum: " << t->levelSum(1) << "\n";
+    return 0; 
 }
