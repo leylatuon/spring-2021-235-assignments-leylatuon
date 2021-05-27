@@ -1,0 +1,146 @@
+* Spring 2021 - 235 - Final - Answers
+
+* Last name: Tuon Cao
+
+* First name: Leyla
+
+* GitHub username: leylatuon
+
+* Instructions
+
+Place your answers in this file. Put the code answers in the specified
+code blocks (the lines delimited with #+begin_src and #+end_src ).
+
+For the diagram answers you can either draw an ascii diagram or upload
+a file (diagrams.pdf, diagrams.png). If you upload a diagram specify
+the filename in the answer location in this file.
+
+You are expected to work alone on this exam. Additionally, you may not
+use web based references nor can you use existing code or any printed
+materials you may have. 
+
+
+At the end of the exam, make sure you fill out the affidavit at the
+end of answers. 
+
+Don't forget to commit and push the answers.txt file before the end
+of the exam (1:00pm). It is recommended that you commit and push each
+time you complete a question.
+
+
+* Trees
+** insert (5pts)
+
+** delete (5pts)
+Insert and delete are located at https://github.com/hunter-classes/spring-2021-235-final-leylatuon/blob/main/Tree%20insert%20and%20delete.png
+
+** traversal (5pts)
+50,20,60,70,65,63,62,67,80,75
+
+** interior_nodes(15 pts)
+
+#+begin_src c++
+
+int interior_nodes(Node *t){
+    if(t==nullptr){
+        return 0;
+    }
+    else if(t->getLeft()==nullptr && t->getRight()==nullptr){
+        return 0;
+    }
+    return (1 + interior_nodes(t->getLeft()) + interior_nodes(t->getRight()))
+}
+
+#+end_src
+
+* Lists (20pts)
+
+#+begin_src c++
+
+*Node partition(Node *l, int value){
+    //we can insert the pivot at the end of the list
+    //then we can go through the list again and if the value is
+    //greater than the pivot we can throw it to the end of the list also
+    
+    Node *walker=l;
+    Node *pivot = new Node();
+    pivot->setData(value);
+    pivot->setNext(nullptr);
+    while(walker->getNext() != nullptr)
+    {
+        walker = walker->getNext(); //get to last node pointint to null
+    }
+    walker->setNext(pivot); //pivot is now at the end
+    Node *endWalker = pivot;
+
+    if(l->getData()<value){
+        walker=l->getNext();//go back to beginning
+        lastValid=l;
+        while(walker->getNext()!=nullptr)
+        {
+            if(walker->getData()>value)
+            {
+                endWalker->setNext(walker);
+
+            }
+            walker = walker->getNext();
+        }
+    }
+
+}
+
+#+end_src
+
+* Stacks and Queues (20pts)
+** enqueue (10pts)
+#+begin_src c++
+
+void enqueue(int value){
+    //we want to add value to bottom of stack
+    while(!s1.empty())
+    {
+        s2.push(s1.top());
+        s1.pop();
+    }
+    s1.push(value);
+    while(!s2.empty()){
+        s1.push(s2.top());
+        s2.pop();
+    }
+}
+
+#+end_src
+** dequeue (10pts)
+#+begin_src c++
+
+int dequeue(){
+    //remove and return top of stack
+    int dequeued;
+    if(s1.empty())
+    {
+        return 0;
+        std::cout<<"empty list";
+    }
+    dequeued = s1.top();
+    s1.pop();
+    return dequeued;
+}
+
+#+end_src
+
+* Run time (10pts)
+
+1. The insert, delete, search, and traversal operations on a full and balanced Binary Search Tree have a runtime of O(log(n)). On a nonbalanced Binary tree in it’s worst case it delineates to a linked list and we get O(n) runtimes.
+2. An array based structure is best for searching and accessing an element because it will have O(logn) runtime using binary search assuming it’s sorted while for a linked list it will have a O(n) runtime because we might still have to traverse the entire list to find a value. However a linked list is best for inserting at a constant runtime while you’ll have a runtime of O(n) on a sorted array.
+3. A heap might be better because since it’s made using arrays, it’s easier to access elements.
+
+
+* Affidavit
+
+By writing my name I affirm that I completed the exam during the
+scheduled time period. I did not consult with anyone nor did I use any
+pre-existing code, books, or online resources. 
+
+
+
+Name: Leyla Tuon Cao

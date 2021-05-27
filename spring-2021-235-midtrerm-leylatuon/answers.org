@@ -1,0 +1,148 @@
+* Spring 2021 - 235 - Exam 1 - Answers
+
+* Last name: Tuon Cao
+
+* First name: Leyla
+
+* GitHub username: leylatuon
+
+* Instructions
+
+Place your answers in this file. Put the code answers in the specified
+code blocks (the lines delimited with #+begin_src and #+end_src ).
+
+You are expected to work alone on this exam. Additionally, you may not
+use web based references nor can you use existing code or any printed
+materials you may have. 
+
+
+At the end of the exam, make sure you fill out the affidavit at the
+end of answers. 
+
+Don't forget to commit and push the answers.txt file before the end
+of the exam (11:00am). It is recommended that you commit and push each
+time you complete a question.
+
+
+
+
+* 1.1 length
+
+#+begin_src c++
+int Node::length(Node *l)
+{
+    Node *walker = l;
+    int size = 0;
+    while (walker != nullptr){
+        walker = walker->getNext();
+        size++;
+    }
+    return size;
+}
+
+#+end_src
+
+* 1.2 middle 
+
+#+begin_src c++
+Node *Node::middle(Node *head)
+{
+    Node *walker=head;
+    int size=0;
+    int ind=0;
+    while (walker != nullptr){
+        walker = walker->getNext();
+        size++;
+    }
+    if (size==0){
+        return head;
+    }
+
+    int mid=size/2;
+    walker=head;
+    while (walker != nullptr && ind != mid){
+        walker = walker->getNext();
+        ind++;
+    }
+    return walker;
+
+}
+#+end_src
+
+* 1.3 mergesort 
+
+#+begin_src c++
+Node *Node::msort(Node *head)
+{
+
+}
+#+end_src
+
+* 1.4 rotate 
+
+#+begin_src c++
+Node *Node::rotate(Node *head, int position){
+//so we want to point the last element to where head is pointing and
+//point head to the node in position and then set end to nullptr
+    Node *walker=head;
+    int ind=0;
+    while (walker !=nullptr){
+        walker = walker->getNext(); //go to last node pointing to null
+    }
+    walker->setNext(head->getNext());
+
+    walker=head;
+    while (walker !=nullptr && ind != position-1){ //stop at previous of position
+        walker = walker->getNext();
+        ind++;
+    }
+    head->setNext(walker->getNext());
+    
+    ind=0;
+    int l=length(head)
+    while (walker !=nullptr){
+        walker = walker-getNext();
+    }
+
+
+}
+#+end_src
+
+
+* 2
+
+** 2.1
+O(n) because once we remove the element we have to resize the vector and so we have to shift
+over all the elements that come after it so it depends on the size of the vector if we remove
+the first element and we have to shift over every element.
+
+** 2.2
+O(c) because assuming the first non-vowel character in the string is the last character
+we have to check every element until the last element which depends on how large c is.
+
+** 2.3
+O(1) the runtime doesn't depend on any variable as it is constant and we know the element is
+always inserted at the beginning of the list.
+
+** 2.4
+O(logn) because since we know it's sorted we can use binary search halving the number of
+elements we need to search through with each iteration.
+
+** 2.5
+O(n) because we need to parse through the entire list once to get the size and the middle point
+and then we need to access the middle element with that mid index.
+
+** 2.6
+O(logn) because we can use binary search if it is sorted thereby halving the number of elements
+we need to search through with each iteration.
+
+
+* Affidavit
+
+By writing my name I affirm that I completed the exam during the
+scheduled time period. I did not consult with anyone nor did I use any
+pre-existing code, books, or online resources. 
+
+
+
+Name: Leyla Tuon Cao

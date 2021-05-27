@@ -1,0 +1,214 @@
+* Spring 2021 - 235 - Final Exam 
+* Thursday May 20, 11:30am - 1:30pm 
+
+* Last name: Tuon Cao
+
+* First name: Leyla
+
+* GitHub username: leylatuon
+
+* Instructions: 
+
+
+Write your answers in the provided file *answers.org*.
+
+For diagram based questions (tree drawing) you can either draw an
+ascii tree but make sure it looks right under GitHub. You can also
+draw all your  diagrams on a piece of paper and upload an image/scan
+to a file named diagrams.pdf or diagrams.png. If you do this, write
+the name of the file you uploaded in the appropriate section of
+answers.org. 
+ 
+For code and short answer questions, write your answers in
+*answers.org* in the given locations.
+
+You are expected to work alone on this exam. Additionally, you may not
+use web based references nor can you use existing code or any printed
+materials you may have. 
+
+At the end of the exam, make sure you fill out the affidavit at the
+end of answers. 
+
+Don't forget to commit and push the answers.txt file before the end
+of the exam (1:30pm). It is recommended that you commit and push each
+time you complete a question.
+
+
+
+*Important:* Don't get caught up on any one question. You can reuse
+code in other parts of the exam, just indicate you're doing so.
+
+
+
+
+
+* Trees
+** Insert (5 pts)
+
+Draw the binary search tree that results from inserting nodes with
+these values (in the order presented) using the algorithm we developed
+in class.
+
+50,60,70,20,65,63,67,62,80,75
+
+You can write out an ascii diagram in answers.org or upload an image
+as described above.
+
+** Delete (5 pts)
+
+Draw the binary search tree that results from deleting the node with
+the value 70 from the tree you drew for the previous question. Make
+sure to use the algorithm discussed in class and presented in the
+class readings.  
+
+You can write out an ascii diagram in answers.org or upload an image
+as described above.
+
+
+** Traversal (5 pts)
+Write out the nodes in the order they would be processed/printed using a
+pre-order traversal of the tree you created in part 1.1
+
+
+
+** interior_nodes (15 pts)
+
+Write a function ~int interior_nodes(Node *t)~ for a binary tree
+as defined in the sample code. ~interior_nodes~ will return the number
+of interior nodes in the tree represented y the parameter t. The
+number of interior nodes is the number of non-leaf nodes in the tree.
+
+
+
+
+* Lists (20 pts)
+Given a linked list of unordered integerrs such as: 
+
+#+begin_example
+10 --> 5 --> 3 --> 8 --> 15 --> 22 --> 7 --> 11 --> 4
+#+end_example
+
+write a function ~*Node partition(Node *l, int value)~. The parameter
+and return types are for the Linked List Node defined below.
+
+The *partition* routine should return a list of nodes such that all
+nodes with a value of less than or equal to the value are to the left
+of the node with the value and all the nodes with values greater than
+the partition are to the value's right. 
+
+There are many possible arrangements that fulfill this requirement.
+
+Here are two examples given the above list and a pivot value of 9:
+
+#+begin_example
+5 --> 3 --> 8 --> 7 --> 4 --> 9 --> 10 --> 15 --> 22 --> 11
+3 --> 4 --> 5 --> 7 --> 8 --> 9 --> 10 --> 15 --> 22 --> 11
+#+end_example
+
+For full credit, don't create any new nodes other than for the node
+with the parameter *value* and just rearrange the nodes (with the
+possible exception of a temporary node or two). 
+
+* Stacks and Queues (20 pts) 
+
+A queue can be represented using the following class:
+
+#+BEGIN_SRC c++
+class Queue {
+private:
+   std::stack<int>  s1,s2;
+public:
+   void enqueue(int value);
+   int dequeue();
+   boolean isEmpty();
+
+   // other methods not shown
+};
+
+#+END_SRC
+
+Recall that std::stack implements these methods: *push, pop, empty,
+top, size*
+
+While a stack is FIFO, you can use two stacks to represent a queue by
+cleverly moving values between them. Consider the fact that if you
+have an empty stack and push 1, 2, then three on it, you'll get the
+items back in reverse order (3,2,1). If you push them on the second
+stack as you do this, that second stack will then have the items in
+the reverse order of what they were on the first stack. 
+
+
+
+
+- Write the method *void enqueue(int value)* for the above class that
+  adds an item to the queue. 
+
+- Write the method *int dequeue()* that removes and returns an item
+  from the queue.
+
+* Run Time (10pts)
+** 
+1. What are the strengths and deficiencies of a Binary Search Tree in
+   terms of runtimes on standard operations (insert, delete, search, traverse)?
+2. Describe and justify when using an array based structure would be
+   preferable to using linked list based one
+3. Describe why a heap might be preferable to a binary search tree.
+
+
+* Code
+
+
+** Definitions for Tree Questions
+#+BEGIN_SRC c++
+  class Node{
+   private:
+    int data;
+    Node *left;
+    Node *right
+   public:
+    Node();
+    Node(int data);
+    Node(int data, Node* left, Node *right);
+    void setData(int data);
+    void setLeft(Node *left);
+    void setRight(Node *right);
+    int getData();
+    Node *getLeft();
+    Node *getRight();
+  };
+
+  class Tree{
+  private:
+    Node *t;
+    // other members not shown
+  public:
+    //methods not shown
+  };
+
+#+END_SRC
+
+** Linked List Node 
+#+BEGIN_SRC c++
+  class Node{
+   private:
+    int data;
+    Node *next;
+   public:
+    Node();
+    Node(int data);
+    Node(int data, Node* next);
+    void setData(int data);
+  
+    void setNext(Node *next);
+    int getData();
+    Node* getNext();
+  };
+
+  class LinkedList{
+  private:
+    Node *head;
+    // other members not shown
+  public:
+    // methods not shown
+  };
+#+END_SRC
